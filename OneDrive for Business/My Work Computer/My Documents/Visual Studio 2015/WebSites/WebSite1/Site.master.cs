@@ -6,12 +6,17 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Linq;
 
 public partial class SiteMaster : MasterPage
 {
     private const string AntiXsrfTokenKey = "__AntiXsrfToken";
     private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
     private string _antiXsrfTokenValue;
+    private SqlConnection sqlConn;
+    public static List<string> allCourses = new List<string>();
+    public static string wildCardCourse = null;
 
     protected void Page_Init(object sender, EventArgs e)
     {
@@ -72,5 +77,48 @@ public partial class SiteMaster : MasterPage
     protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
     {
         Context.GetOwinContext().Authentication.SignOut();
+    }
+
+    public void search_KeyUp(object sender, EventArgs e)
+    {
+        //if(txtSearchMaster.Text != null)
+        //{
+        //string curText = txtSearchMaster.Text;
+        //var potentialCourses = allCourses.Select(x => x.Contains(curText));
+
+        //} else
+        //{
+
+        //}
+
+
+
+
+
+
+
+
+    }
+
+    protected void btnSearch_Click(object sender, EventArgs e)
+    {
+        wildCardCourse = txtSearchMaster.Text;
+
+        Response.BufferOutput = true;
+        if (wildCardCourse != null)
+        {
+            Response.Redirect("http://localhost:49899/SearchResults");
+        }
+
+
+
+
+
+
+
+        //Console.WriteLine("");
+
+        //var searchText = Server.UrlEncode(txtSearchMaster.Text); // URL encode in case of special characters
+        //Response.Redirect("~/Results.aspx?srch=" + searchText);
     }
 }
