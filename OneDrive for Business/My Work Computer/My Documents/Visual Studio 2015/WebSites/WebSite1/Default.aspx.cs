@@ -5,31 +5,157 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
 
 
 
 public partial class _Default : Page
 {
+    public string query, constr;
+    public SqlCommand com;
+    public SqlConnection con;
+
+    public void connection()
+    {
+
+        constr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+        con = new SqlConnection(constr);
+        con.Open();
+
+    }
     protected void UploadFile(object sender, EventArgs e)
 
     {
-
+        Label2.Visible = true;
         string fileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
 
-       FileUpload1.PostedFile.SaveAs(Server.MapPath("~/Uploads/1/") + fileName);
+        string ext = Path.GetExtension(fileName);
 
-        Response.Redirect(Request.Url.AbsoluteUri);
+        string type = String.Empty;
+
+        if (!FileUpload1.HasFile)
+        {
+
+            Label2.Text = "Please Select File";//if file uploader has no file selected
+
+        }
+        else
+
+        if (FileUpload1.HasFile)
+
+        {
+
+            try
+
+            {
+
+
+                switch (ext)                                         // this switch code validate the files which allow to upload only PDF  file 
+
+                {
+
+                    case ".pdf":
+
+                        type = "application/pdf";
+
+                        break;
+
+
+
+                }
+
+
+                if (type != String.Empty)
+
+                {
+
+                    connection();
+
+                    Stream fs = FileUpload1.PostedFile.InputStream;
+
+                    BinaryReader br = new BinaryReader(fs);                                 //reads the   binary files
+
+                    Byte[] bytes = br.ReadBytes((Int32)fs.Length);                           //counting the file length into bytes
+
+                    query = "insert into Properties (Name,type,data)" + " values (@Name, @type, @Data)";   //insert query
+
+                    com = new SqlCommand(query, con);
+
+                    com.Parameters.Add("@Name", SqlDbType.VarChar).Value = fileName;
+
+                    com.Parameters.Add("@type", SqlDbType.VarChar).Value = type;
+
+                    com.Parameters.Add("@Data", SqlDbType.Binary).Value = bytes;
+
+                    com.ExecuteNonQuery();
+
+                    Label2.ForeColor = System.Drawing.Color.Green;
+
+                    Label2.Text = "File Uploaded Successfully";
+
+                }
+
+                else
+
+                {
+
+                    Label2.ForeColor = System.Drawing.Color.Red;
+
+                    Label2.Text = "Select Only PDF Files  ";                              // if file is other than speified extension 
+
+                }
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                Label2.Text = "Error: " + ex.Message.ToString();
+
+            }
+
+
+            FileUpload1.PostedFile.SaveAs(Server.MapPath("~/Uploads/1/") + fileName);
+
+            Response.Redirect(Request.Url.AbsoluteUri);
+
+        }
+    }
+
+        protected void Button2_Click(object sender, EventArgs e)
+
+    {
+
+        connection();
+
+        query = "Select *from PDFFiles";
+
+        SqlDataAdapter da = new SqlDataAdapter(query, con);
+
+        DataSet ds = new DataSet();
+
+        da.Fill(ds);
+
+        GridView1.DataSource = ds;
+
+        GridView1.DataBind();
+
+        con.Close();
+
 
     }
     protected void Page_Load(object sender, EventArgs e)
 
     {
-
+        
 
         if (!IsPostBack)
 
         {
-
+            //getting the filepath of the uploaded file
             string[] filePaths = Directory.GetFiles(Server.MapPath("~/Uploads/1/"));
 
             List<ListItem> files = new List<ListItem>();

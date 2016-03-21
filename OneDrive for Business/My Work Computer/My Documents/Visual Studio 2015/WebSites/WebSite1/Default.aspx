@@ -16,7 +16,7 @@
 <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="UploadFile" />
 
 <hr />
-
+<p> <asp:Label ID="Label2" runat="server" Text="label"></asp:Label>  </p>
 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
 
     <Columns>
