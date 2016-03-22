@@ -198,7 +198,174 @@ public partial class Course : System.Web.UI.Page
                     Label7.Text = "Please Select File";
                 }
                 break;
-
+            case "MainContent_UploadButton8":
+                if (FileUpload8.PostedFile != null)
+                {
+                    fileName = Path.GetFileName(FileUpload8.PostedFile.FileName);
+                    week = week + "8";
+                    ext = Path.GetExtension(fileName);
+                    if (Path.GetExtension(fileName) != desiredExt)
+                    {
+                        Label8.ForeColor = System.Drawing.Color.Red;
+                        Label8.Visible = true;
+                        Label8.Text = "Please select only text files";
+                    }
+                    savePath = Path.Combine(Server.MapPath("~/Uploads/"), courseCode, week, fileName);
+                    FileUpload8.PostedFile.SaveAs(savePath);
+                }
+                else
+                {
+                    Label8.Visible = true;
+                    Label8.Text = "Please Select File";
+                }
+                break;
+            case "MainContent_UploadButton9":
+                if (FileUpload9.PostedFile != null)
+                {
+                    fileName = Path.GetFileName(FileUpload9.PostedFile.FileName);
+                    week = week + "9";
+                    ext = Path.GetExtension(fileName);
+                    if (Path.GetExtension(fileName) != desiredExt)
+                    {
+                        Label9.ForeColor = System.Drawing.Color.Red;
+                        Label9.Visible = true;
+                        Label9.Text = "Please select only text files";
+                    }
+                    savePath = Path.Combine(Server.MapPath("~/Uploads/"), courseCode, week, fileName);
+                    FileUpload9.PostedFile.SaveAs(savePath);
+                }
+                else
+                {
+                    Label9.Visible = true;
+                    Label9.Text = "Please Select File";
+                }
+                break;
+            case "MainContent_UploadButton10":
+                if (FileUpload7.PostedFile != null)
+                {
+                    fileName = Path.GetFileName(FileUpload10.PostedFile.FileName);
+                    week = week + "10";
+                    ext = Path.GetExtension(fileName);
+                    if (Path.GetExtension(fileName) != desiredExt)
+                    {
+                        Label10.ForeColor = System.Drawing.Color.Red;
+                        Label10.Visible = true;
+                        Label10.Text = "Please select only text files";
+                    }
+                    savePath = Path.Combine(Server.MapPath("~/Uploads/"), courseCode, week, fileName);
+                    FileUpload10.PostedFile.SaveAs(savePath);
+                }
+                else
+                {
+                    Label10.Visible = true;
+                    Label10.Text = "Please Select File";
+                }
+                break;
+            case "MainContent_UploadButton11":
+                if (FileUpload11.PostedFile != null)
+                {
+                    fileName = Path.GetFileName(FileUpload11.PostedFile.FileName);
+                    week = week + "11";
+                    ext = Path.GetExtension(fileName);
+                    if (Path.GetExtension(fileName) != desiredExt)
+                    {
+                        Label11.ForeColor = System.Drawing.Color.Red;
+                        Label11.Visible = true;
+                        Label11.Text = "Please select only text files";
+                    }
+                    savePath = Path.Combine(Server.MapPath("~/Uploads/"), courseCode, week, fileName);
+                    FileUpload11.PostedFile.SaveAs(savePath);
+                }
+                else
+                {
+                    Label11.Visible = true;
+                    Label11.Text = "Please Select File";
+                }
+                break;
+            case "MainContent_UploadButton12":
+                if (FileUpload12.PostedFile != null)
+                {
+                    fileName = Path.GetFileName(FileUpload12.PostedFile.FileName);
+                    week = week + "12";
+                    ext = Path.GetExtension(fileName);
+                    if (Path.GetExtension(fileName) != desiredExt)
+                    {
+                        Label12.ForeColor = System.Drawing.Color.Red;
+                        Label12.Visible = true;
+                        Label12.Text = "Please select only text files";
+                    }
+                    savePath = Path.Combine(Server.MapPath("~/Uploads/"), courseCode, week, fileName);
+                    FileUpload12.PostedFile.SaveAs(savePath);
+                }
+                else
+                {
+                    Label12.Visible = true;
+                    Label12.Text = "Please Select File";
+                }
+                break;
+            case "MainContent_UploadButton13":
+                if (FileUpload13.PostedFile != null)
+                {
+                    fileName = Path.GetFileName(FileUpload13.PostedFile.FileName);
+                    week = week + "13";
+                    ext = Path.GetExtension(fileName);
+                    if (Path.GetExtension(fileName) != desiredExt)
+                    {
+                        Label13.ForeColor = System.Drawing.Color.Red;
+                        Label13.Visible = true;
+                        Label13.Text = "Please select only text files";
+                    }
+                    savePath = Path.Combine(Server.MapPath("~/Uploads/"), courseCode, week, fileName);
+                    FileUpload13.PostedFile.SaveAs(savePath);
+                }
+                else
+                {
+                    Label13.Visible = true;
+                    Label13.Text = "Please Select File";
+                }
+                break;
+            case "MainContent_UploadButton14":
+                if (FileUpload14.PostedFile != null)
+                {
+                    fileName = Path.GetFileName(FileUpload14.PostedFile.FileName);
+                    week = week + "14";
+                    ext = Path.GetExtension(fileName);
+                    if (Path.GetExtension(fileName) != desiredExt)
+                    {
+                        Label14.ForeColor = System.Drawing.Color.Red;
+                        Label14.Visible = true;
+                        Label14.Text = "Please select only text files";
+                    }
+                    savePath = Path.Combine(Server.MapPath("~/Uploads/"), courseCode, week, fileName);
+                    FileUpload14.PostedFile.SaveAs(savePath);
+                }
+                else
+                {
+                    Label14.Visible = true;
+                    Label14.Text = "Please Select File";
+                }
+                break;
+            case "MainContent_UploadButton15":
+                if (FileUpload15.PostedFile != null)
+                {
+                    fileName = Path.GetFileName(FileUpload15.PostedFile.FileName);
+                    week = week + "15";
+                    ext = Path.GetExtension(fileName);
+                    if (Path.GetExtension(fileName) != desiredExt)
+                    {
+                        Label15.ForeColor = System.Drawing.Color.Red;
+                        Label15.Visible = true;
+                        Label15.Text = "Please select only text files";
+                    }
+                    savePath = Path.Combine(Server.MapPath("~/Uploads/"), courseCode, week, fileName);
+                    FileUpload15.PostedFile.SaveAs(savePath);
+                }
+                else
+                {
+                    Label15.Visible = true;
+                    Label15.Text = "Please Select File";
+                }
+                break;
         }
 
         if (fileName != null && fileName != "" && Path.GetExtension(fileName) == desiredExt)
@@ -301,6 +468,30 @@ public partial class Course : System.Web.UI.Page
                 List<ListItem> week7List = getWeekFiles(courseDirPath + "/Week7/");
                 GridView7.DataSource = week7List;
                 GridView7.DataBind();
+                List<ListItem> week8List = getWeekFiles(courseDirPath + "/Week8/");
+                GridView8.DataSource = week8List;
+                GridView8.DataBind();
+                List<ListItem> week9List = getWeekFiles(courseDirPath + "/Week9/");
+                GridView9.DataSource = week9List;
+                GridView9.DataBind();
+                List<ListItem> week10List = getWeekFiles(courseDirPath + "/Week10/");
+                GridView10.DataSource = week10List;
+                GridView10.DataBind();
+                List<ListItem> week11List = getWeekFiles(courseDirPath + "/Week11/");
+                GridView11.DataSource = week11List;
+                GridView11.DataBind();
+                List<ListItem> week12List = getWeekFiles(courseDirPath + "/Week12/");
+                GridView12.DataSource = week12List;
+                GridView12.DataBind();
+                List<ListItem> week13List = getWeekFiles(courseDirPath + "/Week13/");
+                GridView13.DataSource = week13List;
+                GridView13.DataBind();
+                List<ListItem> week14List = getWeekFiles(courseDirPath + "/Week14/");
+                GridView14.DataSource = week14List;
+                GridView14.DataBind();
+                List<ListItem> week15List = getWeekFiles(courseDirPath + "/Week15/");
+                GridView15.DataSource = week15List;
+                GridView15.DataBind();
                 //List<ListItem> week2List = getWeekFiles
             }
 
