@@ -12,6 +12,9 @@ public partial class Account_Register : Page
     public string queryReg, constrReg;
     public SqlCommand comReg;
     public SqlConnection conReg;
+    static string username = null;
+    static string password = null;
+    static string confpassword = null;
 
     public void connection()
     {
@@ -24,15 +27,19 @@ public partial class Account_Register : Page
 
     protected void CreateUser_Click(object sender, EventArgs e)
     {
-        var manager = new UserManager();
-        var user = new ApplicationUser() { UserName = UserName.Text };
-        IdentityResult result = manager.Create(user, Password.Text);
+        username = UserName.Text;
+        password = Password.Text;
+        confpassword = ConfirmPassword.Text;
+        // int uid = 101;
+        // var manager = new UserManager();
+        // var user = new ApplicationUser() { UserName = UserName.Text };
 
-        if (user != null && UserName.Text != "" && result !=null && Password.Text != "")
+        /*   IdentityResult result = manager.Create(user, Password.Text); */
+        if (username != null && username != "" && password != null && password != "" && password == confpassword)
         {
             string connectionString = "Data Source=localhost;Initial Catalog=SNDB;User ID=SA;Password=SeniorSem123";
             //insert userID, userName, Password, ProfileID (set to null for now because we might have library later), isAdmin (set to false for now?)
-            string insert = "INSERT INTO User VALUES (1, '" + UserName.Text +"', '"+ Password.Text +"', '"+ null +"', '" + false +"');" ;
+            string insert = "INSERT INTO Users VALUES ('" + username + "', '" + password + "'," + 0 + ");";
 
 
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -43,21 +50,19 @@ public partial class Account_Register : Page
                 command.CommandType = System.Data.CommandType.Text;
                 command.CommandText = insert;
                 command.ExecuteNonQuery();
-                Console.WriteLine("test");
+                Console.WriteLine("test User data");
 
 
             }
         }
-
-
-        if (result.Succeeded)
-        {
-            IdentityHelper.SignIn(manager, user, isPersistent: false);
-            IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-        }
-        else
-        {
-            ErrorMessage.Text = result.Errors.FirstOrDefault();
-        }
+        //if (result.Succeeded)
+        //{
+        //    IdentityHelper.SignIn(manager, user, isPersistent: false);
+        //    IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+        //}
+        //else
+        //{
+        //    ErrorMessage.Text = result.Errors.FirstOrDefault();
+        //}
     }
 }

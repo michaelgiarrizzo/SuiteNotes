@@ -1,10 +1,9 @@
 ﻿<%@ Page Title="Course" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Course.aspx.cs" Inherits="Course" %>
+<%@ PreviousPageType VirtualPath="~/SearchResults.aspx"%> 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="jumbotron">
-        <h1>Course CSC 490 Spring 2016</h1>
-        <h2> Professor: Chays</h2>
-        
+    <div class="jumbotron" id="">
+        <asp:Label runat="server" ID="courseLabel"></asp:Label> 
     </div>
     
     <div class="row">
@@ -12,10 +11,10 @@
             <h2>Week 1</h2>
             <asp:FileUpload ID="FileUpload1" runat="server" EnableViewState="false"/>
 
-<asp:Button ID="UploadButton1" runat="server" Text="Upload" OnClick="UploadFile" AutoPostBack ="False"/>
+<asp:Button ID="UploadButton1" runat="server" Text="Upload" OnClick="UploadFile"/>
 
 <hr />
-<p> <asp:Label ID="Label1" runat="server" Text="label"></asp:Label>  </p>
+<p> <asp:Label ID="Label1" runat="server" Text=""></asp:Label>  </p>
 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
 
     <Columns>
@@ -56,7 +55,7 @@
 <asp:Button ID="UploadButton2" runat="server" Text="Upload" OnClick="UploadFile" />
 
 <hr />
-<p> <asp:Label ID="Label2" runat="server" Text="label"></asp:Label>  </p>
+<p> <asp:Label ID="Label2" runat="server" Text=""></asp:Label>  </p>
 <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
 
     <Columns>
@@ -94,7 +93,7 @@
 <asp:Button ID="UploadButton3" runat="server" Text="Upload" OnClick="UploadFile" />
 
 <hr />
-<p> <asp:Label ID="Label3" runat="server" Text="label"></asp:Label>  </p>
+<p> <asp:Label ID="Label3" runat="server" Text=""></asp:Label>  </p>
 <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
 
     <Columns>
@@ -132,7 +131,7 @@
 <asp:Button ID="Button4" runat="server" Text="Upload" OnClick="UploadFile" />
 
 <hr />
-<p> <asp:Label ID="Label4" runat="server" Text="label"></asp:Label>  </p>
+<p> <asp:Label ID="Label4" runat="server" Text=""></asp:Label>  </p>
 <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
 
     <Columns>
@@ -170,7 +169,7 @@
 <asp:Button ID="Button5" runat="server" Text="Upload" OnClick="UploadFile" />
 
 <hr />
-<p> <asp:Label ID="Label5" runat="server" Text="label"></asp:Label>  </p>
+<p> <asp:Label ID="Label5" runat="server" Text=""></asp:Label>  </p>
 <asp:GridView ID="GridView5" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
 
     <Columns>
@@ -208,7 +207,7 @@
 <asp:Button ID="Button6" runat="server" Text="Upload" OnClick="UploadFile" />
 
 <hr />
-<p> <asp:Label ID="Label6" runat="server" Text="label"></asp:Label>  </p>
+<p> <asp:Label ID="Label6" runat="server" Text=""></asp:Label>  </p>
 <asp:GridView ID="GridView6" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
 
     <Columns>
@@ -247,7 +246,7 @@
 <asp:Button ID="Button7" runat="server" Text="Upload" OnClick="UploadFile" />
 
 <hr />
-<p> <asp:Label ID="Label7" runat="server" Text="label"></asp:Label>  </p>
+<p> <asp:Label ID="Label7" runat="server" Text=""></asp:Label>  </p>
 <asp:GridView ID="GridView7" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
 
     <Columns>
@@ -285,7 +284,7 @@
 <asp:Button ID="Button8" runat="server" Text="Upload" OnClick="UploadFile" />
 
 <hr />
-<p> <asp:Label ID="Label8" runat="server" Text="label"></asp:Label>  </p>
+<p> <asp:Label ID="Label8" runat="server" Text=""></asp:Label>  </p>
 <asp:GridView ID="GridView8" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
 
     <Columns>
@@ -323,7 +322,7 @@
 <asp:Button ID="Button9" runat="server" Text="Upload" OnClick="UploadFile" />
 
 <hr />
-<p> <asp:Label ID="Label9" runat="server" Text="label"></asp:Label>  </p>
+<p> <asp:Label ID="Label9" runat="server" Text=""></asp:Label>  </p>
 <asp:GridView ID="GridView9" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
 
     <Columns>
@@ -361,7 +360,7 @@
 <asp:Button ID="Button10" runat="server" Text="Upload" OnClick="UploadFile" />
 
 <hr />
-<p> <asp:Label ID="Label10" runat="server" Text="label"></asp:Label>  </p>
+<p> <asp:Label ID="Label10" runat="server" Text=""></asp:Label>  </p>
 <asp:GridView ID="GridView10" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
 
     <Columns>
@@ -399,7 +398,7 @@
 <asp:Button ID="Button11" runat="server" Text="Upload" OnClick="UploadFile" />
 
 <hr />
-<p> <asp:Label ID="Label11" runat="server" Text="label"></asp:Label>  </p>
+<p> <asp:Label ID="Label11" runat="server" Text=""></asp:Label>  </p>
 <asp:GridView ID="GridView11" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
 
     <Columns>
@@ -437,7 +436,7 @@
 <asp:Button ID="Button12" runat="server" Text="Upload" OnClick="UploadFile" />
 
 <hr />
-<p> <asp:Label ID="Label12" runat="server" Text="label"></asp:Label>  </p>
+<p> <asp:Label ID="Label12" runat="server" Text=""></asp:Label>  </p>
 <asp:GridView ID="GridView12" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
 
     <Columns>
@@ -475,7 +474,7 @@
 <asp:Button ID="Button13" runat="server" Text="Upload" OnClick="UploadFile" />
 
 <hr />
-<p> <asp:Label ID="Label13" runat="server" Text="label"></asp:Label>  </p>
+<p> <asp:Label ID="Label13" runat="server" Text=""></asp:Label>  </p>
 <asp:GridView ID="GridView13" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
 
     <Columns>
@@ -513,7 +512,7 @@
 <asp:Button ID="Button14" runat="server" Text="Upload" OnClick="UploadFile" />
 
 <hr />
-<p> <asp:Label ID="Label14" runat="server" Text="label"></asp:Label>  </p>
+<p> <asp:Label ID="Label14" runat="server" Text=""></asp:Label>  </p>
 <asp:GridView ID="GridView14" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
 
     <Columns>
@@ -551,7 +550,7 @@
 <asp:Button ID="Button15" runat="server" Text="Upload" OnClick="UploadFile" />
 
 <hr />
-<p> <asp:Label ID="Label15" runat="server" Text="label"></asp:Label>  </p>
+<p> <asp:Label ID="Label15" runat="server" Text=""></asp:Label>  </p>
 <asp:GridView ID="GridView15" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
 
     <Columns>

@@ -90,7 +90,7 @@ dfn {
 }
 
 hr {
-  height: 0;
+  height: -42px;
   -moz-box-sizing: content-box;
        box-sizing: content-box;
 }
@@ -163,7 +163,7 @@ button,
 input,
 select,
 textarea {
-  margin: 0;
+  margin: 13 0 34px 507px;
   font-family: inherit;
   font-size: 100%;
 }
@@ -404,6 +404,7 @@ hr {
 
 p {
   margin: 0 0 10px;
+    height: 57px;
 }
 
 .lead {
@@ -1682,7 +1683,6 @@ input[type="file"] {
 
 select[multiple],
 select[size] {
-  height: auto;
 }
 
 select optgroup {
@@ -4173,8 +4173,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-fixed-top,
 .navbar-fixed-bottom {
   position: fixed;
-  right: 0;
-  left: 0;
+  right: 25px;
+  left: -25px;
   border-width: 0 0 1px;
 }
 
@@ -4186,7 +4186,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-fixed-top {
-  top: 0;
+  top: -7px;
   z-index: 1030;
 }
 
@@ -4507,10 +4507,12 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-inverse {
   background-color: #222222;
   border-color: #080808;
+    height: 74px;
 }
 
 .navbar-inverse .navbar-brand {
   color: #999999;
+    width: 107px;
 }
 
 .navbar-inverse .navbar-brand:hover,
@@ -4938,7 +4940,7 @@ a.list-group-item.active > .badge,
   font-weight: 200;
   line-height: 2.1428571435;
   color: inherit;
-  background-color:rgba(111, 104, 192, 1);
+  /*background-color:rgba(111, 104, 192, 1);*/
   margin-right: -15px;
   margin-left: 50px;
   

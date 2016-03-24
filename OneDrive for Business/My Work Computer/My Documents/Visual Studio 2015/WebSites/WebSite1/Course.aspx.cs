@@ -11,6 +11,9 @@ using System.Configuration;
 
 
 
+
+
+
 public partial class Course : System.Web.UI.Page
 {
     public string query, constr;
@@ -18,7 +21,8 @@ public partial class Course : System.Web.UI.Page
     public SqlConnection con;
     public static string fullCourseName = null;
     public static string courseCode = null;
-
+    private ASP.course_aspx courseText;
+    static string courseDirPath = null;
     public void connection()
     {
 
@@ -389,8 +393,12 @@ public partial class Course : System.Web.UI.Page
         }
 
 
-
-
+        List<ListItem> week1List = getWeekFiles(courseDirPath + "/Week1/");
+        GridView1.DataSource = week1List;
+        GridView1.DataBind();
+        List<ListItem> week2List = getWeekFiles(courseDirPath + "/Week2/");
+        GridView2.DataSource = week1List;
+        GridView2.DataBind();
         //Response.Redirect(Request.Url.AbsoluteUri);
 
 
@@ -418,7 +426,7 @@ public partial class Course : System.Web.UI.Page
 
 
     }
-    protected void Page_Load(object sender, EventArgs e)
+    public void Page_Load(object sender, EventArgs e)
 
     {
 
@@ -426,13 +434,20 @@ public partial class Course : System.Web.UI.Page
 
         if (!IsPostBack)
         {
+
+
+            //var test = HttpContext.Current.Request.QueryString["field1"];
             fullCourseName = SearchResults.selectedCourse;
+            courseLabel.Text = "<h1>" + fullCourseName + "</h1>";
+
             if (fullCourseName != null)
             {
                 courseCode = fullCourseName.Substring(0, 6);
 
 
-                string courseDirPath = Server.MapPath("~/Uploads/" + courseCode + "/");
+                courseDirPath = Server.MapPath("~/Uploads/" + courseCode + "/");
+
+
 
                 if (!Directory.Exists(courseDirPath))
                 {
@@ -444,6 +459,14 @@ public partial class Course : System.Web.UI.Page
                     Directory.CreateDirectory(courseDirPath + "/Week5/");
                     Directory.CreateDirectory(courseDirPath + "/Week6/");
                     Directory.CreateDirectory(courseDirPath + "/Week7/");
+                    Directory.CreateDirectory(courseDirPath + "/Week8/");
+                    Directory.CreateDirectory(courseDirPath + "/Week9/");
+                    Directory.CreateDirectory(courseDirPath + "/Week10/");
+                    Directory.CreateDirectory(courseDirPath + "/Week11/");
+                    Directory.CreateDirectory(courseDirPath + "/Week12/");
+                    Directory.CreateDirectory(courseDirPath + "/Week13/");
+                    Directory.CreateDirectory(courseDirPath + "/Week14/");
+                    Directory.CreateDirectory(courseDirPath + "/Week15/");
                 }
 
 

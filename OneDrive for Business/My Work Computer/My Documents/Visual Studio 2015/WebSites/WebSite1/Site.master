@@ -4,6 +4,7 @@
 
 <html lang="en">
 <head runat="server">
+    <link href="master.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - My ASP.NET Application</title>
@@ -58,8 +59,10 @@
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <div id ="SearchBoxes">
                          <asp:TextBox ID="txtSearchMaster" runat="server"></asp:TextBox>
                         <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick ="btnSearch_Click" />  
+                        </div>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
@@ -85,7 +88,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - SuiteNotes.com</p>
             </footer>
         </div>
     </form>

@@ -11,10 +11,13 @@ public partial class SearchResults : System.Web.UI.Page
     public static bool notInitialLoad = false;
     public static string selectedCourse = null;
 
-    protected void Page_Load(object sender, EventArgs e)
+
+    public void Page_Load(object sender, EventArgs e)
     {
+
         if (!IsPostBack)
         {
+
             noCoursesFoundBox.Visible = false;
 
             string searchCondition = SiteMaster.wildCardCourse;
@@ -71,12 +74,13 @@ public partial class SearchResults : System.Web.UI.Page
 
     }
 
-    protected void toCourseButton_Click(object sender, EventArgs e)
+    public void toCourseButton_Click(object sender, EventArgs e)
     {
+
         if (ListBox1.SelectedItem != null && ListBox1.SelectedItem.Text != null)
         {
             selectedCourse = ListBox1.SelectedItem.ToString();
-            Response.Redirect("http://localhost:49899/Course");
+            Response.Redirect("http://localhost:49899/Course?field1=value1");
 
 
         }
